@@ -1,2 +1,1 @@
-const message: string = 'hello'
-console.log(message)
+import postgres from 'postgres'
