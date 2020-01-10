@@ -1,0 +1,21 @@
+{
+  "name": "try-postgres-js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Ryohei Endo <r-endo@studio-spoon.co.jp>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@types/node": "^13.1.6",
+    "ts-node": "^8.6.0",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "typescript": "^3.7.4"
+  },
+  "scripts": {
+    "start": "node dist/main.js",
+    "dev": "ts-node src/main.ts",
+    "dev:watch": "ts-node-dev --respawn src/main.ts",
+    "build": "tsc",
+    "prebuild": "rimraf dist"
+  }
+}
