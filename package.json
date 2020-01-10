@@ -9,6 +9,7 @@
     "@types/node": "^13.1.6",
     "ts-node": "^8.6.0",
     "ts-node-dev": "^1.0.0-pre.44",
+    "tsconfig-paths": "^3.9.0",
     "typescript": "^3.7.4"
   },
   "scripts": {
@@ -16,7 +17,9 @@
     "dev": "ts-node src/main.ts",
     "dev:watch": "ts-node-dev --respawn src/main.ts",
     "build": "tsc",
-    "prebuild": "rimraf dist"
+    "prebuild": "rimraf dist",
+    "db:init": "node dist/db.init.js",
+    "predb:init": "tsc"
   },
   "dependencies": {
     "postgres": "^1.0.1"
