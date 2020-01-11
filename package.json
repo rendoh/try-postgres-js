@@ -6,6 +6,7 @@
   "license": "MIT",
   "private": true,
   "devDependencies": {
+    "@types/express": "^4.17.2",
     "@types/node": "^13.1.6",
     "ts-node": "^8.6.0",
     "ts-node-dev": "^1.0.0-pre.44",
@@ -22,6 +23,7 @@
     "predb:init": "tsc"
   },
   "dependencies": {
+    "express": "^4.17.1",
     "postgres": "^1.0.1"
   }
 }
