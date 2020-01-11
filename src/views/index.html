@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Users</h1>
+    <button id="fetch-button">Fetch Users</button>
+    <ul id="users"></ul>
+    <form id="create-form">
+      <h2>Create User</h2>
+      <input type="text" name="name" />
+      <button type="submit">Create</button>
+    </form>
+    <script>
+      {
+        const fetchButton = document.getElementById('fetch-button')
+        const userList = document.getElementById('users')
+        fetchButton.addEventListener('click', async e => {
+          e.preventDefault()
+          userList.querySelectorAll('li').forEach(li => li.remove())
+          const users = await fetch('/users').then(response => response.json())
+          users.forEach(user => {
+            const li = document.createElement('li')
+            li.textContent = `ID: ${user.id}`
+          })
+        })
+      }
+
+      {
+        const createForm = document.getElementById('create-form')
+        const nameInputElement = createForm.querySelector('input[name="name"]')
+        createForm.addEventListener('submit', async e => {
+          e.preventDefault()
+          const user = await fetch('/users', {
+            method: 'post',
+            body: {
+              name: nameInputElement.value,
+            },
+          })
+            .catch(error => {
+              console.log(error)
+            })
+            .then(response => response.json())
+          console.log(user)
+        })
+      }
+    </script>
+  </body>
+</html>
